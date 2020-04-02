@@ -7,9 +7,10 @@ A set of tools to run load-tests on a SensorThings API compatible service.
 FROST-Benchmark consists of several parts:
 * Controller: The central controller that starts and stops the other components, and manages the main benchmark "Thing" in that is used
   for communication between the components.
-* SensorCluster: The component that simulates sensors and posts Observations.
-* SubscriberCluster: (Work in progress) A component that subscribes to Datastreams over MQTT.
-* StreamProcessor: (Work in progress) A component that subscribes to Datastreams over MQTT and runs processed based on the received data.
+* SensorCluster: TThe Sensor Cluster application emulates a set of sensors. The sensors are creating observations at a given rate.
+* SubscriberCluster: The subscriber cluster implements an application behaviour typical for data consumers. This component subscribes to Datastreams over MQTT.
+* StreamProcessor: The stream processor application subscribes to the incoming sensor observations, and the received values are used to trigger new observations. 
+* AnalyticsCluster: The analytics application subscribes is used to emulate complex queries which are scheduled in a regular interval.
 
 The other packages are libraries used by these components. There are start-scripts for all components that set the required environment variables
 and start the tools. Each of these components needs to run in its own terminal.
